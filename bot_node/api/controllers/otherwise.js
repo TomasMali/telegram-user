@@ -42,7 +42,6 @@ class OtherwiseController extends Telegram.TelegramBaseController {
                 $.runMenu({
                   message: '*** COSA POSSO FARE PER TE *** ',
                   layout: 2,
-     
                   '\u274e  /RemoveMe': () => { new UsersController().removeUser($) }
                 })
 
