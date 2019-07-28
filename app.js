@@ -7,16 +7,25 @@ const bodyParser = require('body-parser')
 // improve productivity on development
 const morgan = require('morgan')
 
-const productRoutes = require('./api/routs/products')
-const tomas = require('./api/routs/tomas')
+//const productRoutes = require('./api/routs/products')
+//const tomas = require('./api/routs/tomas')
 const users = require('./api/routs/users/user')
 const menu = require('./api/routs/menu/menu')
 const menuDelGiorno = require('./api/routs/menuDelGiorno/menudelgiorno')
 
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb+srv://tommal:' + 'tommal' +
-  '@first-db-3ldi1.mongodb.net/Restaurants?retryWrites=true', { useNewUrlParser: true })
+//mongoose.connect('mongodb+srv://tommal:' + 'tommal' +
+ // '@first-db-3ldi1.mongodb.net/Restaurants?retryWrites=true', { useNewUrlParser: true })
+
+ // mongoose.connect('mongodb+srv://tommal1:tommal1@userregistration-4higw.mongodb.net/UserRegistrationDatabase?retryWrites=true&w=majority', {useNewUrlParser: true })
+
+
+mongoose.connect('mongodb+srv://tommal1:tommal1@userregistration-4higw.mongodb.net/UserRegistrationDatabase?retryWrites=true&w=majority', { useNewUrlParser: true }, function(error) {
+  // if error is truthy, the initial connection failed.
+  console.log(error);
+})
+
 
 // improve productivity on development
 app.use(morgan('dev'));
@@ -37,8 +46,8 @@ app.use((req,res,next)=>{
 
 
 // just go to the ather file if you pass me /products 
-app.use('/products', productRoutes);
-app.use('/tomas', tomas);
+//app.use('/products', productRoutes);
+//app.use('/tomas', tomas);
 app.use('/users',users);
 app.use('/menu',menu);
 app.use('/menuDelGiorno',menuDelGiorno);
